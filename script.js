@@ -87,7 +87,7 @@ function topLevelCheck(query, destinations){
 async function getDestinationData(){
     // grab destination data
     try{
-        const res = await fetch('../travel_recommendation_api.json')
+        const res = await fetch('./travel_recommendation_api.json')
             if(!res.ok){
                     throw new Error('Request Failed!')
             , networkError =>{console.log(networkError.message)}
