@@ -46,6 +46,9 @@
     .top-padding{
         padding-block-start: 2rem;
     }
+    .center-in-col{
+        align-self: center;
+    }
     .stack{
         > *+*{
             margin-block: 16px;
