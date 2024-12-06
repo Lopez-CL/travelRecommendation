@@ -1,0 +1,77 @@
+<!Doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale= 1.0">
+    <link rel="stylesheet" href="../travel-recommendation.css">
+    <title>Travel Bloom | Home</title>
+    <script type="text/javascript" src="../travel-recommendation.js" defer></script>
+</head>
+
+<body>
+    
+    <header class="header">
+        <div class="header__logo">
+            <img class="logo__img" src="../assets/logo.png" alt="plane logo" aria-hidden="true">
+            <h1><em>TravelBloom</em></h1>
+        </div>
+        <nav class="header__nav-bar">
+            <ul>
+                <li><a href="./travel-recommendation.html">Home</a></li>
+                <li><a href="./about-us.html">About</a></li>
+                <li><a href="./contact-us.html">Contact</a></li>
+            </ul>
+        </nav>
+        <search class="header__search">
+            <form id="search-query">
+                <div class="search__container">
+                    <label aria-label="Destination Name" for="destination-search">
+                        <img src="../assets/maginifying-glass.png" aria-hidden="true" alt="magnifying glass">
+                    </label>
+                    <input type="text" name="destination-search" id="destination-search" placeholder="Enter a Keyword or Destination">
+                    </div>
+                    
+                    <div class="search__buttons">
+                        <button type="submit" class="bttn button--submit">
+                        Search
+                        </button>
+                        <button id="cancel-search" type="reset" class=" bttn button--cancel">
+                            Cancel
+                        </button>
+                </div>
+                
+            </form>
+            </search>
+    </header>
+    
+    <main>
+        <div class="overlay"></div>
+        <section class="default-three-column">
+            <div class="aside-column">
+                <div class="socials-container">
+                    <div class="random-line"></div>
+                    <img src="../assets/3.png" alt="instagram">
+                    <img src="../assets/4.png" alt="youtube">
+                    <img src="../assets/5.png" alt="facebook">
+                    <img src="../assets/6.png" alt="linkedin">
+                </div>
+            </div>
+            <div class="middle-col-copy">
+                <h2>Explore
+                    Dream
+                    Discover
+                </h2>
+                <p>Embark on a journey that inspires you to explore uncharted territories and immerse yourself in vibrant cultures and breathtaking landscapes. Experience the thrill of pursuing your dream destination—one that captures your heart and ignites your sense of wonder. Let your adventure begin!
+                </p>
+                <a class="bttn bttn--med" href="#">Book Now</a>
+            </div>
+            <div id="search-results" class="top-padding stack">
+                
+            </div>
+        </section>
+        <section></section>
+    </main>
+</body>
+
+</html>

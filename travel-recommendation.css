@@ -1,0 +1,297 @@
+@layer global, layouts, modules;
+
+@layer global{
+    *,*::before,*::after{
+            box-sizing: border-box;
+        }
+    *{
+        margin: 0;
+    }
+    h1,h2,h3,h4,h5,h6{
+        color: #fff;
+    }
+    button, input, textarea, select, datalist{
+        font: inherit;
+        background-color: transparent;
+        border: 1px solid #ffffffb8;
+        border-radius: 8px;
+        padding: .5rem;
+        color: #fff;
+    }
+    image, picture, svg, canvas{
+        display: block;
+        width:100%;
+        height: auto;
+    }
+    body{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-image: url(./assets/city-background.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment:fixed;
+        /* background-position: center; */
+    }
+    main{
+        position: relative;
+        min-height: 100vh;
+        /* z-index: 0; */
+    }
+    .overlay{
+        position: absolute;
+        inset: 0;
+        background-color: #00000055;
+    }
+}
+@layer layouts{
+    .top-padding{
+        padding-block-start: 2rem;
+    }
+    .stack{
+        > *+*{
+            margin-block: 16px;
+        }
+    }
+    .default-three-column{
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template: auto / minmax(5%,10%) 1.5fr 2fr;
+        justify-items: center;
+        /* align-items: center; */
+    }
+    .about-two-column{
+        position: relative;
+        z-index: 1;
+        display: grid;
+        column-gap: 4rem;
+        grid-template: auto / minmax(5%,10%) 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+    .aside-column{
+        justify-self:flex-start;
+        
+        .socials-container{
+            .random-line{
+            margin-block: 7em 10em;
+            border: 1px solid #fff;
+            inline-size: 0;
+            margin-inline-start: calc(72px/2);
+            min-block-size: 18em;
+            }   
+            img{
+                width: 4.5em;
+                display: block;
+            } 
+        }
+    }
+    
+}
+@layer modules{
+        /* Buttons */
+        .bttn{
+            cursor: pointer;
+            padding: .5rem .8rem;
+            height: fit-content;
+            background-color: teal;
+            border-radius: 8px;
+            color: #fff;
+            border: none;
+            text-decoration: none;
+        }
+        .bttn--med{
+            padding: .6rem 1.5rem;
+            font-size: 1.3em;
+        }
+        .bttn--team{
+            background-color: hsl(210, 100%, 30%);
+        }
+        /* Header */
+        .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5rem;
+        background-color: rgba(21, 20, 20, 0.836);
+        color: #fff;
+        padding-inline: 1rem;
+        }
+        .header__logo{
+            flex: 0 1 40%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            .logo__img{
+                width: 75px;
+                height: 75px;
+            }
+        }
+        .header__nav-bar{
+            flex: 0 1 20%;
+            ul {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 1.5em;
+            list-style: none;
+            padding: 0;
+            }
+            li a{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        .header__search{
+            flex: 0 1 32rem;
+            padding: .3rem;
+            border-radius: 50px;
+            background-color: #fff;
+            form{
+                display: flex;
+                padding-inline-end: 1em;
+                justify-items: center;
+                gap: 2rem;
+            }
+            .search__container{
+                display: flex;
+                align-items: center;
+                label{
+                    > img{
+                        width: 3rem;
+                    }
+                    
+                }
+            }
+            input{
+                border: none;
+                min-width: clamp(10ch, 25ch, 35ch);
+                min-height: 1rem;
+                color: #000;
+            }
+            .search__buttons{
+                display: inline-flex;
+                align-items: center;
+                gap: .7rem;
+            }
+        }
+        .middle-col-copy{
+            padding-block-start: 5rem;
+            h2{
+                white-space: pre-line;
+                font-size: 5.5em;
+            }
+            p{
+                /* display: inline-block; */
+                font-size: 1.5em;
+                color: #fff;
+                background: #33333308;
+                margin-block: 1em;
+            }
+            a{
+                display: block;
+                width: fit-content;
+            }
+            &.middle-col-copy--about{
+                align-self: flex-start;
+                justify-self: flex-start;
+                h2{
+                    margin-block-start: 3rem;
+                }
+                > *+*{
+                    margin-block: 4rem;
+                }
+                /* for purposes of this project, I'm being lazy, but this is an instance where a default layout rule set would be beneficial to add to whatever needs this background styling*/
+                > div{
+                    border-radius: .5rem;
+                    padding: 1rem;
+                }
+                > div:first-of-type{
+                    width: 85%;
+                    background-color: rgba(21, 20, 20, 0.536);
+                }
+            }
+            .team-container{
+                display: flex;
+                width: 90%;
+                h3{
+                    font-size: 4.5rem;
+                }
+                p{
+                    display: revert;
+                    font-size: initial;
+                    margin: initial;
+                }
+                /* p+p{
+
+                } */
+            }
+        }
+        .team-card-holder{
+            display: flex;
+            flex-flow: row wrap;
+            gap: 1rem;
+            .team-card-holder__cards{
+                flex: 0 1 30%;
+            }
+            .team-card-holder__cards{
+                display: grid;
+                grid-template: repeat(3,auto)/auto;
+                row-gap: .5rem;
+                background-color: rgba(21, 20, 20, 0.536);
+                border-radius: .5rem;
+                padding: 1rem;
+                img{
+                    width: 4.5rem;
+                }
+            }
+        }
+        .contact-form{
+                display: grid;
+                grid-template: repeat(4,1fr) /auto;
+                align-items: center;
+                background-color: rgba(21, 20, 20, 0.536);
+                height: 50%;
+                width: 90%;
+                padding: 2rem;
+                div > *+*{
+                    margin-block: 1rem; 
+                    width: 95%;
+                }
+                label{
+                    display: block;
+                    color: #fff;
+                }
+                input{
+                    height: 2.5rem;
+                    &.bttn{
+                        width: 95%;
+                    }
+                }
+        }
+        .destination-card{
+            background-color: #fff;
+            width: 95%;
+            border-radius: 8px;
+            img{
+                width: 100%;
+                max-height: 425px;
+                border-radius: 8px 8px 0 0;
+            }
+            .destination-card__body{
+                padding: 8px;
+                h3{
+                color: #000;
+                font-size: 1.5rem;
+                }
+                a{
+                    display: inline-block;
+                }
+                p{
+                    padding-block: 8px;
+                }
+            }
+            
+        }
+}            

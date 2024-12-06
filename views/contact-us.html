@@ -1,0 +1,64 @@
+<!Doctype html>
+<html lang="en-us">
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width = device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../travel-recommendation.css">
+        <script type="text/javascript" src="../travel-recommendation.js" defer></script>
+    </head>
+    <body>
+    
+        <header class="header">
+            <div class="header__logo">
+                <img class="logo__img" src="../assets/logo.png" alt="plane logo" aria-hidden="true">
+                <h1><em>TravelBloom</em></h1>
+            </div>
+            <nav class="header__nav-bar">
+                <ul>
+                    <li><a href="./travel-recommendation.html">Home</a></li>
+                    <li><a href="./about-us.html">About</a></li>
+                    <li><a href="./contact-us.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="overlay"></div>
+            <section class="default-three-column">
+                <div class="aside-column">
+                    <div class="socials-container">
+                        <div class="random-line"></div>
+                        <img src="../assets/3.png" alt="instagram">
+                        <img src="../assets/4.png" alt="youtube">
+                        <img src="../assets/5.png" alt="facebook">
+                        <img src="../assets/6.png" alt="linkedin">
+                    </div>
+                </div>
+                <div class="middle-col-copy">
+                    <h2>Contact Us
+                    </h2>
+                    <p>We'd love to hear from you to learn how we can improve or hear about how awesome your latest adventure though us was!
+                    </p>
+                </div>
+                <form class="contact-form" action="/" method="">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div>
+                        <label for="Message">Message</label>
+                        <textarea name="message" id="message" rows="5" cols="20" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div>
+                        <input class="bttn bttn--med" type="submit" value="Submit">
+                    </div>
+                </form>
+                
+            </section>
+        </main>
+    </body>
+</html>
