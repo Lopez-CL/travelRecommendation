@@ -1,12 +1,16 @@
 // Set up Global Scope
 const searchBox = document.getElementById('search-query');
 const queryInput = document.getElementById('destination-search');
+const inputCancelButton = document.getElementById('cancel-search');
 const searchResultsBox = document.getElementById("search-results");
 let inputValue = ""
 queryInput.addEventListener('input', e =>{
     inputValue = e.currentTarget.value
 })
-
+inputCancelButton.addEventListener('click', () =>{
+    queryInput.value = "";
+    inputValue = "";
+})
 searchBox.addEventListener('submit', async e =>{
     e.preventDefault();
     searchResultsBox.innerHTML = "";
@@ -44,9 +48,11 @@ searchBox.addEventListener('submit', async e =>{
             destCard.innerHTML = `<h3> NO DESTINATIONS FOUND :( </h3>`;
             searchResultsBox.appendChild(destCard);
         }
-    }else{
-        
     }
+    // else{
+        
+    // }
+    queryInput.value = "";
 })
 
 // Query Handler
@@ -63,15 +69,18 @@ function topLevelCheck(query, destinations){
     let results = [];
     // console.log(destinations);
     query= query.toLowerCase();
+    // Check Country name
+    destinations.countries.forEach(country =>{
+        if(country.name.toLowerCase().includes(query)){
+            console.log("Should hit for Aus")
+            country.cities.forEach(city =>{
+            results.push(city);
+        });
+        };
+    });
     for(const topCategory in destinations){
-        if(topCategory.includes(query) && topCategory.includes("count")){
-            destinations[topCategory].forEach(country =>{
-                country.cities.forEach(city =>{
-                    results.push(city);
-                });
-            });
             // break; if I wanted keyword match on category only, then I would keep, but if want a any contains match, then removing the break will be necessary
-        }else if(topCategory.includes(query)){
+        if(topCategory.includes(query)){
             destinations[topCategory].forEach(loc =>{
                 results.push(loc);
             });
