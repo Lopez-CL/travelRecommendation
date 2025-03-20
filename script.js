@@ -25,6 +25,7 @@ searchBox.addEventListener('submit', async e =>{
                 destCard.className = "destination-card";
                 let destImg = document.createElement('img');
                 destImg.src = result.imageUrl;
+                destImg.loading = "lazy";
                 destCard.appendChild(destImg);
                 let destCardBody = document.createElement('div');
                 destCardBody.className = "destination-card__body"
@@ -40,7 +41,11 @@ searchBox.addEventListener('submit', async e =>{
                 actionLink.href = "";
                 actionLink.innerText = "Visit";
                 destCardBody.appendChild(actionLink)
+                destCard.style.visibility = "hidden";
                 searchResultsBox.appendChild(destCard);
+                setTimeout(() =>{
+                    destCard.style.visibility = "visible";
+                }, 50)
         })
         }else{
             console.log("hitting this?")
